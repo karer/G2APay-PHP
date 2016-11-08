@@ -7,9 +7,9 @@
  * @license 	https://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
-namespace Karer;
+namespace G2APay;
 
-class G2APayment
+class G2A_Payment
 {
 	const API_URL = 'https://checkout.pay.g2a.com';
 
