@@ -9,7 +9,7 @@
 
 namespace Karer;
 
-class G2APay
+class G2APayment
 {
 	const API_URL = 'https://checkout.pay.g2a.com';
 
@@ -37,7 +37,7 @@ class G2APay
 			'sku'		=> $sku,
 			'name'		=> $name,
 			'amount'	=> $quanity * $price,
-			'quanity'	=> $quanity,
+			'qty'	=> $quanity,
 			'id'		=> $id,
 			'price'		=> $price,
 			'url'		=> $url,
@@ -46,7 +46,7 @@ class G2APay
 		];
 	}
 
-	public function createPayment()
+	public function create()
 	{
 		// Calculate total price of items.
 		$amount = array_sum(array_column($this->items, 'amount'));
