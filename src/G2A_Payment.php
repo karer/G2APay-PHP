@@ -46,13 +46,13 @@ class G2A_Payment
 		];
 	}
 
-	public function create()
+	public function create($extra = array())
 	{
 		// Calculate total price of items.
 		$amount = array_sum(array_column($this->items, 'amount'));
 
 		// Prepare array with data to query G2A.
-		$fields = [
+		$fields = array_merge([
 			'api_hash'		=> $this->apiHash,
 			'hash'			=> $this->calculateHash($amount),
 			'order_id'		=> $this->orderId,
@@ -61,7 +61,7 @@ class G2A_Payment
 			'url_failure'	=> $this->urlFail,
 			'url_ok'		=> $this->urlSuccess,
 			'items'			=> $this->items,
-		];
+		], $extra);
 
 		// Request API server.
 		$ch = curl_init();
